@@ -1,0 +1,71 @@
+﻿@model IEnumerable<CourseRegisteration.ViewModel.RegistrationViewModel>
+
+<div class="container">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+                <ul class="nav-bar nav">
+                    <li class="nav-item">
+                        <a asp-controller="Registration" asp-action="Create" class="nav-link">Create</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+    </nav>
+</div>
+
+<div class="card-deck">
+
+
+    @foreach (var item in Model)
+    {
+    <div class="card m-3">
+        <div class="card-header">
+            <h3>@item.RegistrationId</h3>
+        </div>
+        <div class="card-footer text-center">
+            <a asp-controller="Registration" asp-action="Details" asp-route-id="@item.RegistrationId" class="btn btn-primary">View</a>
+            <a asp-controller="Registration" asp-action="Update" asp-route-id="@item.RegistrationId" class="btn btn-primary">Edit</a>
+            <a asp-controller="Registration" asp-action="Delete" asp-route-id="@item.RegistrationId" class="btn btn-danger">Delete</a>
+           
+           
+        </div>
+    </div>
+    }
+</div>
+@{
+    ViewData["Title"] = "Registrations";
+}
+
+<h1>Registration</h1>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Registration Id</th>
+            <th>Registration Type</th>
+            <th>Student Name</th>
+            <th>Course Name</th>
+            <th>Instructor Name</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <th scope="row">@item.RegistrationId</th>
+            <td>@item.Type</td>
+            <td>@item.StudentName</td>
+            <td>@item.CourseName</td>
+            <td>@item.InstructorName</td>
+        </tr>
+        }
+    </tbody>
+</table>
+

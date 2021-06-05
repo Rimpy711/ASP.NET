@@ -1,0 +1,27 @@
+﻿
+@model Instructors;
+
+<div class="row justify-content-center m-3">
+    <div class="col-sm-8">
+        <div class="card-header">
+            <h1>@Model.InstructorId</h1>
+        </div>
+    </div>
+    <div class="card-body text-center">
+        <h4>First Name: @Model.FirstName</h4>
+        <h4>Last Name: @Model.LastName</h4>
+        <h4>Email: @Model.Email</h4>
+        <h4>Course: @Model.Course</h4>
+    </div>
+    <div class="card-footer text-center">
+        <a asp-controller="home" asp-action="index" class="btn btn-primary">Back</a>
+        <a asp-controller="Instructor" asp-action="Update" asp-route-id="@Model.InstructorId" class="btn btn-primary">Edit</a>
+        <a asp-controller="Instructor" asp-action="Delete" asp-route-id="@Model.InstructorId" class="btn btn-danger">Delete</a>
+    </div>
+</div>
+
+@section Scripts {
+
+    <script src="~/js/CustomScript.js"></script>
+
+    }
